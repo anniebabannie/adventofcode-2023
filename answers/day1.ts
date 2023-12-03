@@ -1,15 +1,12 @@
-const lastDigit = (num:number) => num % 10;
+import { getLines } from "..";
 
-
-export async function getLines(): Promise<string[]> {
-  const calibrationValues = "./day1/data/calibration-values.txt";
-  const file = Bun.file(calibrationValues);
-  const text = await file.text();
-  const lines = text.split(`\n`).slice(0,-1); // remove the trailing line break
-  return lines;
+export async function day1() {
+  const lines = await getLines(1)
+  problemA(lines);
+  problemB(lines);
 }
 
-export async function problemA(lines: string[]) {
+async function problemA(lines: string[]) {
   let sum = 0;
   lines.forEach(l => {
     const numString = l.replace(/\D/g, '');
@@ -35,7 +32,7 @@ enum SpelledNums {
   "nine" = "9"
 }
 
-export async function problemB(lines: string[]) {
+async function problemB(lines: string[]) {
   
   let sum = 0;
   

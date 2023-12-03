@@ -1,9 +1,17 @@
-import { getLines, problemA, problemB } from "./day1/answers";
+import { day1 } from "./answers/day1";
+import { day2 } from "./answers/day2";
 
-async function day1() {
-  const lines = await getLines();
-  problemA(lines);
-  problemB(lines);
+export async function getLines(day:number, sample?: boolean): Promise<string[]> {
+  const input = `./inputs/day${day}${sample ? "-sample" : ""}.txt`;
+  const file = Bun.file(input);
+  const text = await file.text();
+  const lines = text.split(`\n`);
+  return lines;
 }
 
-day1();
+async function run() {
+  // await day1(); 
+  await day2();
+}
+
+run()
