@@ -2,7 +2,7 @@ import { getLines } from "..";
 
 export async function day2() {
   const lines = await getLines(2)
-  // problemA(lines);
+  problemA(lines);
   problemB(lines);
 }
 
